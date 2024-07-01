@@ -30,5 +30,10 @@ class BlogService {
     const blog = this.#model.updateOne({ _id: id }, updateModel);
     return blog;
   }
+  async remove(id) {
+    id = new mongoose.Types.ObjectId(id);
+    const result = await this.#model.deleteOne({ _id: id });
+    return result;
+  }
 }
 module.exports = BlogService;

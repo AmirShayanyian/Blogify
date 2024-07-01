@@ -68,6 +68,19 @@ class BlogController {
       next(error);
     }
   }
+  async deleteOne(req, res, next) {
+    try {
+      const id = req.params;
+      const result = await this.#service.remove(id);
+      return res.status(200).json({
+        status: 200,
+        message: 'OK',
+        data: result,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = BlogController;
