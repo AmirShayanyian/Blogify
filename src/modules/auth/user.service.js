@@ -11,6 +11,7 @@ class UserService {
   signUp(userModel) {
     if (!this.#model.find()) userModel['role'] = Roles.Admin;
     userModel['role'] = Roles.User;
+    console.log(userModel);
     return this.#model.create(userModel);
   }
   async sigIn(userModel) {

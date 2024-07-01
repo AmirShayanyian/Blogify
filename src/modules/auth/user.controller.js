@@ -10,6 +10,7 @@ class UserController {
   }
   signUp(req, res, next) {
     try {
+
       const {
         username,
         password,
@@ -28,6 +29,7 @@ class UserController {
         email,
         mobile,
       });
+
       return res.status(201).json({
         status: 201,
         message: 'Created',
