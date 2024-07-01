@@ -3,6 +3,7 @@ const connectToMongoose = require('./src/configs/mongoose.config');
 const NotFoundHandler = require('./src/common/middlewares/notFound.handler');
 const GlobalExceptionHandler = require('./src/common/middlewares/globalException.handler');
 const { MainRouter } = require('./src/modules/index.routes');
+const path = require('path');
 require('dotenv').config();
 const port = process.env.SERVER_PORT || 3000;
 const mongoDB_url = process.env.MONGODB_URL;
@@ -12,7 +13,7 @@ async function app() {
   await connectToMongoose(mongoDB_url);
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-
+  app.use(express.static(__dirname + '\\public'));
   app.use(MainRouter);
   NotFoundHandler(app);
   GlobalExceptionHandler(app);

@@ -62,5 +62,18 @@ class UserController {
       next(error);
     }
   }
+  async sendPic(req, res, next) {
+    if (!req.file) {
+      return res.status(400).json({
+        status: 400,
+        message: 'BAD REQUEST',
+      });
+    }
+    const file = req.file;
+    console.log(file);
+    return res.status(200).json({
+      message:"OK"
+    })
+  }
 }
 module.exports = UserController;
