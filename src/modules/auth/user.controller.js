@@ -1,5 +1,6 @@
 const { hashPass } = require('../../common/utils/auth.util');
 const UserService = require('./user.service');
+const autoBind = require('auto-Bind');
 
 class UserController {
   #service;
@@ -44,3 +45,4 @@ class UserController {
     }
   }
 }
+module.exports = UserController;
