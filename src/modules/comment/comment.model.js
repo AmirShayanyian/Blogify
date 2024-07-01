@@ -1,6 +1,13 @@
-const { Schema, Mongoose, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
-const commentSchema = Schema({}, { timestamps: true });
+const commentSchema = Schema(
+  {
+    text: { type: String, required: true },
+    likes: { type: [Types.ObjectId] },
+    author: { type: Types.ObjectId },
+  },
+  { timestamps: true }
+);
 
 const commentModel = model('comment', commentSchema);
 
