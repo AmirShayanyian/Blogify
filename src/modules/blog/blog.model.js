@@ -6,11 +6,12 @@ const blogSchema = Schema(
     short_desc: { type: String, required: false },
     long_desc: { type: String, required: true },
     author: { type: Types.ObjectId, required: true },
-    likes: { type: [Types.ObjectId] },
+    likes: { type: [Types.ObjectId], ref: 'user', required: false },
     pictures: { type: [String] },
   },
   { timestamps: true }
 );
+
 
 const blogModel = model('blog', blogSchema);
 

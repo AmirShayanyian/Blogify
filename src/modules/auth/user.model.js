@@ -18,6 +18,11 @@ const userSchema = Schema(
   { timestamps: true }
 );
 
+userSchema.virtual('blogs', {
+  ref: 'blog',
+  localField: '_id',
+  foreignField: 'author',
+});
 const userModel = model('user', userSchema);
 
 module.exports = userModel;
