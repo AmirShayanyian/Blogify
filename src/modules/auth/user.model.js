@@ -1,4 +1,5 @@
 const { Schema, Types, model } = require('mongoose');
+const Roles = require('../../common/constants/roles.enum');
 
 const userSchema = Schema(
   {
@@ -12,6 +13,7 @@ const userSchema = Schema(
     bookmarks: { type: [Types.ObjectId] },
     likes: { type: [Types.ObjectId] },
     profile_pic: { type: String },
+    role: { type: String, enum: Roles, default: Roles.User },
   },
   { timestamps: true }
 );
