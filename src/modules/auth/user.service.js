@@ -6,6 +6,6 @@ class UserService {
     autoBind(this);
     this.#model = userModel;
   }
-
+  
 }
 module.exports = UserService;
