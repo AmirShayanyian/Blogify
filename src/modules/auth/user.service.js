@@ -8,10 +8,10 @@ class UserService {
     autoBind(this);
     this.#model = userModel;
   }
-  signUp(userModel) {
-    if (!this.#model.find()) userModel['role'] = Roles.Admin;
-    userModel['role'] = Roles.User;
-    console.log(userModel);
+  async signUp(userModel) {
+    const users = await this.#model.find();
+    if (users.length == 0) userModel['role'] = Roles.Admin;
+    else userModel['role'] = Roles.User;
     return this.#model.create(userModel);
   }
   async sigIn(userModel) {

@@ -10,7 +10,6 @@ class UserController {
   }
   signUp(req, res, next) {
     try {
-
       const {
         username,
         password,
