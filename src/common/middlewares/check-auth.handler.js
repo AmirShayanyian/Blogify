@@ -1,4 +1,4 @@
-const userModel = require('../models/user.model');
+const userModel = require('../../modules/auth/user.model');
 const { verifyToken } = require('../utils/auth.util');
 async function checkAuth(req, res, next) {
   try {
