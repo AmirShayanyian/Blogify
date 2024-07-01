@@ -5,7 +5,7 @@ const categorySchema = Schema(
     name: { type: String, required: true, unique: true },
     description: { type: String },
     picture: { type: String },
-    blogs: { type: [Types.ObjectId] },
+    blogs: { type: [Types.ObjectId], ref: 'blog', required: false },
   },
   { timestamps: true }
 );

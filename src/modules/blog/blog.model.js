@@ -11,7 +11,10 @@ const blogSchema = Schema(
   },
   { timestamps: true }
 );
-
+blogSchema.virtual('parent', {
+  ref: 'category',
+  localField: '',
+});
 
 const blogModel = model('blog', blogSchema);
 
