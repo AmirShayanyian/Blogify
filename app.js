@@ -10,6 +10,8 @@ const mongoDB_url = process.env.MONGODB_URL;
 async function app() {
   const app = express();
   await connectToMongoose(mongoDB_url);
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
   app.use(MainRouter);
   NotFoundHandler(app);
