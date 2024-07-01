@@ -10,8 +10,8 @@ class CategoryController {
 
   createCategory(req, res, next) {
     try {
-      const { title, description } = req.body;
-      const category = this.#service.create({ title, description });
+      const { name, description } = req.body;
+      const category = this.#service.create({ name, description });
       return res.json(category);
     } catch (error) {
       next(error);
@@ -46,9 +46,9 @@ class CategoryController {
   }
   async updateOne(req, res, next) {
     try {
-      const { title, description } = req.body;
+      const { name, description } = req.body;
       const id = req.params;
-      const result = await this.#service.updateOne(id, { title, description });
+      const result = await this.#service.updateOne(id, { name, description });
       return res.status(200).json({
         status: 200,
         message: 'OK',

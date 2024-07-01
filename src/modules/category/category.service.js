@@ -1,6 +1,7 @@
 const autoBind = require('auto-Bind');
 const categoryModel = require('./category.model');
 
+const { mongoose } = require('mongoose');
 class CategoryService {
   #model;
   constructor() {
