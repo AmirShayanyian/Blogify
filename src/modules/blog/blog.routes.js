@@ -7,7 +7,7 @@ const blogController = new BlogController();
 router.post('/', checkAuth, blogController.createBlog);
 router.get('/', blogController.getBlogs);
 router.get('/:id', blogController.findOne);
-router.put('/:id', blogController.updateOne);
+router.put('/:id', checkAuth, blogController.updateOne);
 router.delete('/:id', blogController.deleteOne);
 
 module.exports = {
