@@ -8,13 +8,15 @@ const blogSchema = Schema(
     author: { type: Types.ObjectId, required: true },
     likes: { type: [Types.ObjectId], ref: 'user', required: false },
     pictures: { type: [String] },
+    category: { type: Types.ObjectId, ref: 'category' },
   },
   { timestamps: true }
 );
-// blogSchema.virtual('parent', {
-//   ref: 'category',
-//   localField: '',
-// });
+blogSchema.virtual('parent', {
+  ref: 'category',
+  localField: 'category',
+  foreignField: 'blogs',
+});
 
 const blogModel = model('blog', blogSchema);
 

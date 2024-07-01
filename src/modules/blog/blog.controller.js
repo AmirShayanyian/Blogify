@@ -1,5 +1,6 @@
 const autoBind = require('auto-Bind');
 const BlogService = require('./blog.service');
+const { default: mongoose } = require('mongoose');
 
 class BlogController {
   #service;
@@ -10,12 +11,13 @@ class BlogController {
 
   createBlog(req, res, next) {
     try {
-      const { title, short_desc, long_desc } = req.body;
+      const { title, short_desc, long_desc, category } = req.body;
       const blog = this.#service.create({
         title,
         short_desc,
         long_desc,
         author: req.user.id,
+        category: new mongoose.Types.ObjectId(category),
       });
       return res.json(blog);
     } catch (error) {
@@ -25,7 +27,6 @@ class BlogController {
   async getBlogs(req, res, next) {
     try {
       const blogs = await this.#service.findAll();
-      console.log(blogs);
       return res.json({
         status: 200,
         message: 'OK',
