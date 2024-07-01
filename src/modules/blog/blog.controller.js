@@ -35,6 +35,21 @@ class BlogController {
       next(error);
     }
   }
+  async findOne(req, res, next) {
+    const id = req.params;
+    const blog = await this.#service.findOne(id);
+    if (!blog) {
+      return res.status(404).json({
+        status: 404,
+        message: `Blog with id :${id} not found `,
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: 'OK',
+      data: blog,
+    });
+  }
 }
 
 module.exports = BlogController;

@@ -1,3 +1,4 @@
+const { Mongoose, Types } = require('mongoose');
 const blogModel = require('./blog.model');
 const autoBind = require('auto-Bind');
 class BlogService {
@@ -15,6 +16,14 @@ class BlogService {
       {},
       { _id: 0, createdAt: 0, updatedAt: 0, __v: 0 }
     );
+  }
+  async findOne(id) {
+    id = new Types.ObjectId(id);
+    const blog = await this.#model.findOne(
+      { _id: id },
+      { _id: 0, createdAt: 0, updatedAt: 0, __v: 0 }
+    );
+    return blog;
   }
 }
 module.exports = BlogService;
