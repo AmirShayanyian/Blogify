@@ -1,3 +1,4 @@
+const Roles = require('../../common/constants/roles.enum');
 const { verifyPass, signToken } = require('../../common/utils/auth.util');
 const userModel = require('./user.model');
 const autoBind = require('auto-Bind');
@@ -8,6 +9,8 @@ class UserService {
     this.#model = userModel;
   }
   signUp(userModel) {
+    if (!this.#model.find()) userModel['role'] = Roles.Admin;
+    userModel['role'] = Roles.User;
     return this.#model.create(userModel);
   }
   async sigIn(userModel) {
