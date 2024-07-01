@@ -50,6 +50,24 @@ class BlogController {
       data: blog,
     });
   }
+  async updateOne(req, res, next) {
+    try {
+      const { title, short_desc, long_desc } = req.body;
+      const id = req.params;
+      const result = await this.#service.updateOne(id, {
+        title,
+        short_desc,
+        long_desc,
+      });
+      return res.status(200).json({
+        status: 200,
+        message: 'OK',
+        data: result,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = BlogController;
