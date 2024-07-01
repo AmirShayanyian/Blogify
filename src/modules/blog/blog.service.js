@@ -10,5 +10,11 @@ class BlogService {
   async create(blogModel) {
     return await this.#model.create(blogModel);
   }
+  async findAll() {
+    return await this.#model.find(
+      {},
+      { _id: 0, createdAt: 0, updatedAt: 0, __v: 0 }
+    );
+  }
 }
 module.exports = BlogService;
