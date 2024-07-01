@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
     message: 'Hi this is good',
   });
 });
-router.use(AuthRoutes);
+router.use('/auth',AuthRoutes);
 module.exports = {
   MainRouter: router,
 };

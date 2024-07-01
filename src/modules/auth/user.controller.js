@@ -44,5 +44,22 @@ class UserController {
       next(error);
     }
   }
+  async signIn(req, res, next) {
+    try {
+      const { username, password } = req.body;
+      const exist = this.#service.checkUserExistByUsername(username);
+      if (exist) {
+        const token = await this.#service.sigIn({ username, password });
+        if (token)
+          return res.status(200).json({
+            status: 200,
+            message: 'OK',
+            token,
+          });
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 module.exports = UserController;
