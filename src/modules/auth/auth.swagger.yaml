@@ -1,0 +1,21 @@
+paths:
+  /auth/signup:
+    post:
+      tags:
+        - Auth
+      Summary: Sign-up user route
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUp'
+      responses:
+        '200':
+          description: successful operation user signed up
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignUp'
+
+        '400':
+          description: Bad Request

@@ -1,11 +1,11 @@
 tags:
-  - name: Auth 
+  - name: Auth
     description: Auth Api for Sign-In & Sign-Up
-  - name: Blog 
+  - name: Blog
     description: Blog CRUD Apis
-  - name: Category 
-    description: Category CRUD Apis 
-  - name: Comment 
+  - name: Category
+    description: Category CRUD Apis
+  - name: Comment
     description: Comment creation APi
 components:
   schemas:
@@ -21,4 +21,28 @@ components:
         short_desc:
           type: string
           example: Some short_desc
-        
+    SignUp:
+      type: object
+      properties:
+        username:
+          type: string
+          example: user1234
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        password:
+          type: string
+          example: pass1234
+        address:
+          type: string
+          example: London somewhere
+        email:
+          type: string
+          example: someEmail@email.com
+        mobile:
+          type: string
+          example: 09128112020
+    

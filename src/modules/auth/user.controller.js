@@ -28,7 +28,6 @@ class UserController {
         email,
         mobile,
       });
-
       return res.status(201).json({
         status: 201,
         message: 'Created',
@@ -72,8 +71,8 @@ class UserController {
     const file = req.file;
     console.log(file);
     return res.status(200).json({
-      message:"OK"
-    })
+      message: 'OK',
+    });
   }
 }
 module.exports = UserController;
