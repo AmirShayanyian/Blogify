@@ -1,0 +1,24 @@
+tags:
+  - name: User 
+    description: User Api for Sign-In & Sign-Up
+  - name: Blog 
+    description: Blog CRUD Apis
+  - name: Category 
+    description: Category CRUD Apis 
+  - name: Comment 
+    description: Comment creation APi
+components:
+  schemas:
+    Blog:
+      type: Object
+      properties:
+        title:
+          type: string
+          example: Some Title
+        long_desc:
+          type: string
+          example: Some long_desc
+        short_desc:
+          type: string
+          example: Some short_desc
+        
