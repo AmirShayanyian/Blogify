@@ -1,6 +1,6 @@
 tags:
-  - name: User 
-    description: User Api for Sign-In & Sign-Up
+  - name: Auth 
+    description: Auth Api for Sign-In & Sign-Up
   - name: Blog 
     description: Blog CRUD Apis
   - name: Category 
@@ -10,7 +10,7 @@ tags:
 components:
   schemas:
     Blog:
-      type: Object
+      type: object
       properties:
         title:
           type: string

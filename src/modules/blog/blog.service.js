@@ -12,17 +12,17 @@ class BlogService {
     return await this.#model.create(blogModel);
   }
   async findAll() {
-    return await this.#model.find(
-      {},
-      { _id: 0, createdAt: 0, updatedAt: 0, __v: 0 }
-    );
+    return await this.#model
+      .find({}, { _id: 0, createdAt: 0, updatedAt: 0, __v: 0 })
+      .populate('category', { _id: 0, createdAt: 0, updatedAt: 0, __v: 0 })
+      .exec();
   }
   async findOne(id) {
     id = new mongoose.Types.ObjectId(id);
-    const blog = await this.#model.findOne(
-      { _id: id },
-      { _id: 0, createdAt: 0, updatedAt: 0, __v: 0 }
-    );
+    const blog = await this.#model
+      .findOne({ _id: id }, { _id: 0, createdAt: 0, updatedAt: 0, __v: 0 })
+      .populate('category', { _id: 0, name: 1 })
+      .exec();
     return blog;
   }
   async updateOne(id, updateModel) {

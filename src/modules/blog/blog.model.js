@@ -1,6 +1,6 @@
 const { Schema, model, Mongoose, Types } = require('mongoose');
 
-const blogSchema = Schema(
+const blogSchema = new Schema(
   {
     title: { type: String, required: true, index: true },
     short_desc: { type: String, required: false },
@@ -12,7 +12,7 @@ const blogSchema = Schema(
   },
   { timestamps: true }
 );
-blogSchema.virtual('parent', {
+blogSchema.virtual('blogCategory', {
   ref: 'category',
   localField: 'category',
   foreignField: 'blogs',

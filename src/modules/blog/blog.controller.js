@@ -1,6 +1,6 @@
 const autoBind = require('auto-Bind');
 const BlogService = require('./blog.service');
-const { default: mongoose } = require('mongoose');
+const { default: mongoose, Types } = require('mongoose');
 
 class BlogController {
   #service;
@@ -17,7 +17,7 @@ class BlogController {
         short_desc,
         long_desc,
         author: req.user.id,
-        category: new mongoose.Types.ObjectId(category),
+        category: new Types.ObjectId(category),
       });
       return res.json(blog);
     } catch (error) {
