@@ -16,6 +16,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SignUp'
+        '400':
+          description: Bad Request
+  /auth/sign-in:
+    post:
+      tags:
+        - Auth
+      Summary: Sign-In user route
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignIn'
+      responses:
+        '200':
+          description: successful operation user Login
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignInRes'
 
         '400':
           description: Bad Request

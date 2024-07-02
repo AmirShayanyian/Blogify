@@ -45,4 +45,25 @@ components:
         mobile:
           type: string
           example: 09128112020
-    
+    SignIn:
+      type: object
+      properties:
+        username:
+          type: string
+          example: user1234
+        password:
+          type: string
+          example: pass1234
+    SignInRes:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: Int64
+          example: 200
+        message:
+          type: string
+          example: 'OK'
+        token:
+          type: string
+          example: '?'
